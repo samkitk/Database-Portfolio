@@ -99,7 +99,7 @@ public void run(DbObject rec) throws IOException {
 
 static public void main(String[] args) throws IOException {
 //create database and run it
-	Database trees = new Database();
-	trees.run(new Tree());
+	Database portfolio = new Database();
+	portfolio.run(new Portfolio());
 }
 }
