@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class Portfolio extends DbObject {
+    int temp = 1;
     private String stockName,ownerName, industry;
     private double price;
     private int quantity;
@@ -48,6 +49,10 @@ public class Portfolio extends DbObject {
     @Override
     public void readFromConsole() {
         System.out.print("Owner name: ");
+        if(temp > 1)
+        {
+            kb.next();
+        }
         ownerName = kb.nextLine();
         for(int i = ownerName.length(); i< ownerNameLen; i++)
         {
@@ -69,6 +74,7 @@ public class Portfolio extends DbObject {
         price = kb.nextDouble();
         System.out.print("Quantity: ");
         quantity = kb.nextInt();
+        temp++;
     }
     
     @Override
