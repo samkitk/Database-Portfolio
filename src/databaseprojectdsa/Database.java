@@ -5,10 +5,7 @@
  */
 package databaseprojectdsa;
 import java.io.*;
-/**
- *
- * @author Sameep
- */
+
 public class Database {
 private RandomAccessFile database;
 private String fName = new String();
@@ -101,5 +98,5 @@ static public void main(String[] args) throws IOException {
 //create database and run it
 	Database portfolio = new Database();
 	portfolio.run(new Portfolio());
-}
+    }
 }
