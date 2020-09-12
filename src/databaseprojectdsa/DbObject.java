@@ -6,10 +6,6 @@
 package databaseprojectdsa;
 import java.io.*;
 
-/**
- *
- * @author Sameep
- */
 abstract class DbObject {
 
 	 java.util.Scanner kb = new java.util.Scanner(System.in);

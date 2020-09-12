@@ -38,6 +38,7 @@ public class Tree extends DbObject {
 		
 		return name.trim().equals(((Tree) d).name.trim());
 	}
+        
 	@Override
 	public void writeToFile(RandomAccessFile out) throws IOException {
 		writeString(name, out);
@@ -60,16 +61,15 @@ public class Tree extends DbObject {
 
 	@Override
 	public void readFromConsole() {
-		kb.useDelimiter("\r\n");
 		
 		System.out.print("Enter name: ");
-		name=kb.next();
+		name=kb.nextLine();
 		
 		for(int i = name.length(); i< nameLen; i++)
 			name+=' ';
 
 		System.out.print("Latin name: ");
-		latinName= kb.next();
+		latinName= kb.nextLine();
 		for(int i = latinName.length(); i< latinNameLen; i++)
 			latinName+=' ';
 		
@@ -79,13 +79,13 @@ public class Tree extends DbObject {
 		//System.out.print("Here is error: " + kb.next());
 		
 		System.out.print("Habitat: ");
-		habitat=kb.next();
+		habitat=kb.nextLine();
 
 		for(int i = habitat.length(); i< habitatLen; i++)
 			habitat+=' ';
 		
 		System.out.print("Uses: ");
-		uses=kb.next();
+		uses=kb.nextLine();
 
 		for(int i = uses.length(); i< usesLen; i++)
 			uses+=' ';
@@ -104,7 +104,7 @@ public class Tree extends DbObject {
 	public void readKey() {
 		System.out.println("Enter name: ");
 		kb.useDelimiter("\r\n");
-		name= kb.next();
+		name= kb.nextLine();
 System.out.println("Comparing name: " + name);
 	}
 
