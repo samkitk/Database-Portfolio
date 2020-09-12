@@ -105,7 +105,7 @@ public class Tree extends DbObject {
 		System.out.println("Enter name: ");
 		kb.useDelimiter("\r\n");
 		name= kb.nextLine();
-System.out.println("Comparing name: " + name);
+                System.out.println("Comparing name: " + name);
 	}
 
 	@Override

@@ -3,11 +3,11 @@ package databaseprojectdsa;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class Portfolio extends DbObject{
+public class Portfolio extends DbObject {
     private String stockName,ownerName, industry;
     private double price;
     private int quantity;
-    protected int ownerNameLen = 30, stockNameLen = 30, industryLen = 30, priceLen = 30, quantityLen = 30;
+    protected int ownerNameLen = 30, stockNameLen = 30, industryLen = 30, priceLen = 8, quantityLen = 4;
     protected int size = 2*ownerNameLen+2*stockNameLen+priceLen + quantityLen + 2*industryLen;
     
     public Portfolio() {
@@ -27,11 +27,11 @@ public class Portfolio extends DbObject{
     
     @Override
     public void writeToFile(RandomAccessFile out) throws IOException {
-                writeString(ownerName + '\t', out);
-		writeString(stockName + '\t', out);
-		writeString(industry + '\t', out);
-                writeString(Double.toString(price) + '\t',out);
-		writeString(Integer.toString(quantity) + '\n', out);
+                writeString(ownerName, out);
+		writeString(stockName, out);
+		writeString(industry, out);
+                out.writeDouble(price);
+                out.writeInt(quantity);
     }
     
     @Override
@@ -49,10 +49,22 @@ public class Portfolio extends DbObject{
     public void readFromConsole() {
         System.out.print("Owner name: ");
         ownerName = kb.nextLine();
+        for(int i = ownerName.length(); i< ownerNameLen; i++)
+        {
+            ownerName+=' ';
+        }
         System.out.print("Stock name: ");
         stockName = kb.nextLine();
+        for(int i = stockName.length(); i< stockNameLen; i++)
+        {
+            stockName+=' ';
+        }
         System.out.print("Industry name: ");
         industry = kb.nextLine();
+        for(int i = industry.length(); i< industryLen; i++)
+        {
+            industry+=' ';
+        }
         System.out.print("Stock price: ");
         price = kb.nextDouble();
         System.out.print("Quantity: ");
